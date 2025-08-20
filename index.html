@@ -1,11 +1,304 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste de Git</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FATEC Baixada Santista — Página de Exemplo</title>
+  <meta name="description" content="Página HTML fictícia e responsiva sobre a FATEC Baixada Santista, criada apenas como exemplo." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'> <text y='0.9em' font-size='90'>🎓</text></svg>">
+  <style>
+    :root{
+      --bg:#0b1220;
+      --bg-soft:#0e1730;
+      --primary:#4ea8de;
+      --primary-2:#64dfdf;
+      --accent:#90e0ef;
+      --text:#e6edf3;
+      --muted:#9db0c9;
+      --card:#121a32;
+      --ok:#80ed99;
+      --warn:#ffd166;
+      --shadow:0 1rem 2rem rgba(0,0,0,.35);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:linear-gradient(180deg,var(--bg),var(--bg-soft));color:var(--text);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%;display:block;border-radius:12px}
+    header{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.7);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary-2));display:grid;place-items:center;box-shadow:var(--shadow)}
+    .brand strong{letter-spacing:.2px}
+    .menu{display:flex;gap:18px;align-items:center}
+    .menu a{opacity:.9}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#041018;font-weight:700;box-shadow:var(--shadow);border:none}
+    .hero{position:relative;overflow:hidden}
+    .hero .content{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:56px 0 24px}
+    .badge{display:inline-flex;gap:10px;align-items:center;padding:6px 10px;border:1px solid rgba(255,255,255,.14);border-radius:999px;font-size:12px;color:var(--muted)}
+    h1{font-size:clamp(28px,4vw,46px);line-height:1.1;margin:12px 0 12px}
+    .lead{font-size:clamp(16px,2vw,18px);color:#cbd6e9;margin-bottom:18px}
+    .high{color:var(--primary-2)}
+    .stats{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px}
+    .stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);padding:12px 14px;border-radius:14px;min-width:140px}
+    .hero-ill{position:relative}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .section{padding:40px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);font-size:12px;color:var(--muted)}
+    .list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+    .list li{display:flex;gap:10px;align-items:flex-start}
+    .list .dot{width:8px;height:8px;border-radius:999px;background:var(--primary-2);margin-top:9px}
+    .courses .card{padding:18px}
+    .courses h3{margin:8px 0}
+    details{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:12px 14px;border-radius:12px}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:600}
+    .note{font-size:13px;color:var(--muted)}
+    footer{border-top:1px solid rgba(255,255,255,.06);padding:24px 0 60px;color:#b6c5da}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .kpi{padding:16px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+    .kpi b{font-size:22px}
+    .pill{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;border:1px dashed rgba(255,255,255,.25)}
+    .mobile-toggle{display:none}
+    @media (max-width: 900px){
+      .hero .content{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .menu{display:none}
+      .mobile-toggle{display:inline-flex}
+    }
+  </style>
 </head>
 <body>
-    
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">🎓</div>
+        <strong>FATEC Baixada Santista</strong>
+        <span class="tag" title="Somente exemplo">Exemplo</span>
+      </div>
+      <nav class="menu" aria-label="Principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#processo">Processo Seletivo</a>
+        <a href="#campus">Vida no Campus</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <button class="btn mobile-toggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+    </div>
+  </header>
+
+  <main class="wrap hero">
+    <section class="content">
+      <div>
+        <div class="badge">✅ Página fictícia, para fins didáticos</div>
+        <h1>Formando profissionais para transformar a <span class="high">Baixada Santista</span></h1>
+        <p class="lead">Esta é uma página HTML de exemplo, não oficial, criada apenas para demonstrar estrutura, estilos e acessibilidade em um site simples e responsivo.</p>
+        <div class="stats">
+          <div class="stat"><b>+20</b><br/>Laboratórios</div>
+          <div class="stat"><b>8</b><br/>Cursos Tecnológicos</div>
+          <div class="stat"><b>2009</b><br/>Desde</div>
+        </div>
+      </div>
+      <div class="hero-ill">
+        <div class="card" style="padding:16px">
+          <img src="fatec.webp" alt="Foto ilustrativa do campus, prédios modernos e estudantes." />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section id="sobre" class="wrap section">
+    <div class="grid-2">
+      <div class="card" style="padding:18px">
+        <h2>Sobre a FATEC</h2>
+        <p>A Faculdade de Tecnologia da Baixada Santista tem foco em inovação, empregabilidade e conexões com o ecossistema portuário, turístico e criativo da região. Projetos integradores, parcerias com empresas e metodologias ativas apoiam a aprendizagem prática.</p>
+        <ul class="list" aria-label="Diferenciais">
+          <li><span class="dot"></span><div>Professores atuantes no mercado</div></li>
+          <li><span class="dot"></span><div>Projetos reais com empresas parceiras</div></li>
+          <li><span class="dot"></span><div>Eventos, semanas acadêmicas e hackathons</div></li>
+        </ul>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><div class="pill">📈 Indicador</div><b>92%</b><br><span>Alunos empregados</span></div>
+        <div class="kpi"><div class="pill">🕒 Duração</div><b>3 anos</b><br><span>Graduação tecnológica</span></div>
+        <div class="kpi"><div class="pill">🤝 Parcerias</div><b>50+</b><br><span>Empresas & órgãos</span></div>
+        <div class="kpi"><div class="pill">🌐 Extensão</div><b>10+</b><br><span>Projetos/ano</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cursos" class="wrap section courses">
+    <h2>Cursos em destaque</h2>
+    <div class="grid">
+      <article class="card">
+        <span class="tag">Tecnologia</span>
+        <h3>Análise e Desenvolvimento de Sistemas</h3>
+        <p>Fundamentos de programação, engenharia de software e infraestrutura. Projetos de apps e APIs desde o 1º semestre.</p>
+        <ul class="list">
+          <li><span class="dot"></span><div>Backend, Frontend e DevOps</div></li>
+          <li><span class="dot"></span><div>Metodologias ágeis e TDD</div></li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Negócios</span>
+        <h3>Gestão Comercial</h3>
+        <p>Marketing, vendas e inteligência de mercado com foco em dados para tomada de decisão e performance.</p>
+        <ul class="list">
+          <li><span class="dot"></span><div>CRM e funil de vendas</div></li>
+          <li><span class="dot"></span><div>Planejamento e precificação</div></li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag">Logística</span>
+        <h3>Logística Portuária</h3>
+        <p>Cadeias de suprimento, operações e regulação com ênfase no Porto de Santos, o maior da América Latina.</p>
+        <ul class="list">
+          <li><span class="dot"></span><div>Gestão de armazéns e frota</div></li>
+          <li><span class="dot"></span><div>Comércio exterior e aduanas</div></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="processo" class="wrap section">
+    <div class="grid-2">
+      <div class="card" style="padding:18px">
+        <h2>Processo seletivo</h2>
+        <p>As inscrições geralmente ocorrem duas vezes por ano, com provas e/ou análise de histórico. Fique atento aos editais e prazos oficiais.</p>
+        <details>
+          <summary>Documentos comuns</summary>
+          <ul>
+            <li>RG e CPF</li>
+            <li>Histórico escolar</li>
+            <li>Comprovante de residência</li>
+          </ul>
+        </details>
+        <details>
+          <summary>Bolsas e auxílios</summary>
+          <p>Programas de auxílio permanência, pesquisa e extensão, conforme disponibilidade institucional.</p>
+        </details>
+        <p class="note">*Este conteúdo é fictício e serve apenas como exemplo de layout.</p>
+      </div>
+      <div class="card" style="padding:18px">
+        <h2>Depoimentos</h2>
+        <figure style="margin:0 0 12px">
+          <blockquote>“A vivência prática com empresas da região acelerou minha carreira.”</blockquote>
+          <figcaption>— Aluna egressa, ADS</figcaption>
+        </figure>
+        <figure style="margin:0">
+          <blockquote>“Excelente infraestrutura e professores próximos do aluno.”</blockquote>
+          <figcaption>— Aluno, Logística</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="campus" class="wrap section">
+    <h2>Vida no Campus</h2>
+    <div class="grid">
+      <div class="card" style="padding:14px">
+        <img src="https://picsum.photos/600/360?random=1" alt="Biblioteca com estudantes concentrados."/>
+        <p class="note">Biblioteca e espaços de estudo colaborativo.</p>
+      </div>
+      <div class="card" style="padding:14px">
+        <img src="https://picsum.photos/600/360?random=2" alt="Laboratório de informática com computadores e equipamentos."/>
+        <p class="note">Laboratórios atualizados e mentorias técnicas.</p>
+      </div>
+      <div class="card" style="padding:14px">
+        <img src="https://picsum.photos/600/360?random=4" alt="Auditório com palestra e plateia."/>
+        <p class="note">Eventos, palestras e semanas acadêmicas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="wrap section">
+    <div class="grid-2">
+      <div class="card" style="padding:18px">
+        <h2>Contato</h2>
+        <p>Para informações oficiais, consulte os canais institucionais da Fatec e do Centro Paula Souza.</p>
+        <form onsubmit="event.preventDefault(); alert('Formulário de exemplo enviado!');">
+          <label>
+            <span>Seu nome</span>
+            <input required type="text" name="nome" placeholder="Maria Santos" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0b1220;color:var(--text);margin-top:6px"/>
+          </label>
+          <br><br>
+          <label>
+            <span>E-mail</span>
+            <input required type="email" name="email" placeholder="voce@email.com" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0b1220;color:var(--text);margin-top:6px"/>
+          </label>
+          <br><br>
+          <label>
+            <span>Mensagem</span>
+            <textarea name="msg" rows="4" placeholder="Escreva aqui" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:#0b1220;color:var(--text);margin-top:6px"></textarea>
+          </label>
+          <br><br>
+          <button class="btn" type="submit">Enviar</button>
+        </form>
+      </div>
+      <div class="card" style="padding:18px">
+        <h2>Perguntas frequentes</h2>
+        <details>
+          <summary>Esta página é oficial?</summary>
+          <p>Não. É apenas um exemplo para demonstrar HTML + CSS responsivos.</p>
+        </details>
+        <details>
+          <summary>Posso usar este template?</summary>
+          <p>Sim, sinta-se à vontade para duplicar e adaptar para seus estudos.</p>
+        </details>
+        <details>
+          <summary>Como personalizar as cores?</summary>
+          <p>Edite as <code>:root</code> CSS vars no topo do arquivo (ex.: <code>--primary</code>, <code>--bg</code>).</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between">
+        <small>© <span id="year"></span> Página de exemplo — não oficial.</small>
+        <div style="display:flex;gap:10px;align-items:center">
+          <span class="tag">Acessível</span>
+          <span class="tag">Responsiva</span>
+          <span class="tag">HTML + CSS puro</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Ano automático no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Toggle simples de menu mobile
+    const toggle = document.querySelector('.mobile-toggle');
+    const header = document.querySelector('header');
+    let mobileMenu;
+    toggle?.addEventListener('click', () => {
+      if(!mobileMenu){
+        mobileMenu = document.createElement('nav');
+        mobileMenu.id = 'mobileMenu';
+        mobileMenu.setAttribute('aria-label','Menu móvel');
+        mobileMenu.style.padding = '12px 20px 20px';
+        mobileMenu.style.borderTop = '1px solid rgba(255,255,255,.08)';
+        mobileMenu.innerHTML = `
+          <a href="#sobre">Sobre</a><br>
+          <a href="#cursos">Cursos</a><br>
+          <a href="#processo">Processo Seletivo</a><br>
+          <a href="#campus">Vida no Campus</a><br>
+          <a href="#contato">Contato</a>
+        `;
+        header.appendChild(mobileMenu);
+      }
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.style.display = expanded ? 'none' : 'block';
+    });
+  </script>
 </body>
 </html>
